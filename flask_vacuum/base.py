@@ -3,10 +3,12 @@ from typing import List, Optional
 from flask import Flask
 from flask_injector import FlaskInjector, _ModuleT as ModuleT  # noqa
 
+from flask_vacuum.events import EventsModule
+
 
 class Vacuum:
 
-    default_modules: List[ModuleT] = []
+    default_modules: List[ModuleT] = [EventsModule]
 
     def __init__(
         self,
