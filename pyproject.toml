@@ -12,6 +12,7 @@ blinker = "^1.4"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.1"
+tox = "^3.14"
 
 [tool.isort]
 combine_as_imports = true
