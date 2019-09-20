@@ -1,0 +1,28 @@
+[tool.isort]
+combine_as_imports = true
+default_section = "THIRDPARTY"
+include_trailing_comma = true
+known_first_party = "flask_vacuum"
+known_standard_library = "typing,dataclasses,contextvars"
+line_length = 88
+multi_line_output = 3
+not_skip = "__init__.py"
+force_grid_wrap = 0
+use_parentheses = true
+
+[tool.poetry]
+name = "flask-vacuum"
+version = "0.1.0"
+description = ""
+authors = ["Anton Ruhlov <antonruhlov@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+flask = "^1.1"
+flask-injector = "^0.12.0"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
