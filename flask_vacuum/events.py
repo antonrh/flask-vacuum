@@ -1,9 +1,9 @@
 import inspect
 from typing import Any, Callable, Optional, Type
 
-import injector
 from blinker import Namespace
 from flask import Flask, has_app_context
+from injector import Module, inject, provider
 
 from flask_vacuum import contracts
 from flask_vacuum.contracts import Event
@@ -101,8 +101,8 @@ class EventDispatcher(contracts.EventDispatcher):
         return inspect.isclass(event_type) and issubclass(event_type, Event)
 
 
-class EventsModule:
-    @injector.inject
-    @injector.provider
+class EventsModule(Module):
+    @inject
+    @provider
     def provide_event_dispatcher(self, app: Flask) -> contracts.EventDispatcher:
         return EventDispatcher(app)

@@ -34,3 +34,9 @@ class EventDispatcher(abc.ABC):
         """
         Dispatch an event.
         """
+
+
+class Scanner(abc.ABC):
+    @abc.abstractmethod
+    def scan(self) -> None:
+        pass

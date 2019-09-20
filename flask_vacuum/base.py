@@ -4,11 +4,12 @@ from flask import Flask
 from flask_injector import FlaskInjector, _ModuleT as ModuleT  # noqa
 
 from flask_vacuum.events import EventsModule
+from flask_vacuum.scanner import ScannerModule
 
 
 class Vacuum:
 
-    default_modules: List[ModuleT] = [EventsModule]
+    default_modules: List[ModuleT] = [ScannerModule, EventsModule]
 
     def __init__(
         self,
