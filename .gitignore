@@ -21,3 +21,4 @@ dist/
 .mypy_cache
 
 # Project specific
+.tox
