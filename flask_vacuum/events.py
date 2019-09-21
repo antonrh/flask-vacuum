@@ -2,7 +2,7 @@ import inspect
 from typing import Any, Callable, Optional, Type
 
 from blinker import Namespace
-from flask import Flask, has_app_context
+from flask import Flask, current_app, has_app_context
 from injector import Module, inject, provider
 
 from flask_vacuum import contracts
@@ -32,11 +32,11 @@ class EventDispatcher(contracts.EventDispatcher):
 
         if handler:
 
-            def receiver_(_, event):
+            def _receiver(_, event):
                 return handler(event)
 
-            setattr(receiver_, "__handler__", handler)
-            signal.connect(receiver_, sender, weak=False)
+            setattr(_receiver, "__handler__", handler)
+            signal.connect(_receiver, sender, weak=False)
             return
 
         def decorator(fn):
